@@ -1,4 +1,11 @@
-# Mobile Legends Professional League Philippines Update API
+# express-node-template
 
-Get the latest MPL-PH Updates from [https://ph-mpl.com/](https://ph-mpl.com/)
+Dead Simple Node.js and Express Starter Template
 
+Includes the following:
+
+    - apicache
+    - body-parser
+    - cors
+    - express
+    - dotenv
