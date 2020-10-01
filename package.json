@@ -18,6 +18,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1"
   },
+  "type": "module",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
