@@ -9,6 +9,7 @@ Clone the repository, install the dependencies via `npm install` and run develop
 Available endpoints:
 
 - Get player statistics -> [/players/stats](/players/stats)
+- Get all teams -> [/allTeams](/allTeams)
 
 
 Contributors:
