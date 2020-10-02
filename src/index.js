@@ -4,7 +4,9 @@ import bodyParser from "body-parser";
 import "dotenv/config";
 
 import { parsePlayerStatistitcs } from "./parsers/getPlayersStatistics";
+
 import { parseHeroesStatistics } from "./parsers/getHeroesStatistics";
+import { getTeams } from "./parsers/getAllTeams";
 
 const app = express();
 
@@ -22,6 +24,7 @@ app.get("/players/stats", async (req, res) => {
   }
 });
 
+
 app.get('/heroes/stats', async (req, res) => {
   try {
     const stats = await parseHeroesStatistics();
@@ -37,7 +40,18 @@ app.get("/", (req, res) => {
   res.json({
     message: "Hello ExpressJS!",
   });
+
+app.get("/allTeams", async (req, res) => {
+  try{
+    const allTeams = await getTeams();
+    res.json({
+      allTeams,
+    });
+  }catch(err){
+    res.status(500).send(err);
+  }
 });
+
 
 app.listen(4000, () => {
   console.log(`app is listening to port 4000`);
