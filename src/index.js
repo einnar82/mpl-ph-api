@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import "dotenv/config";
 
 import { parsePlayerStatistitcs } from "./parsers/getPlayersStatistics";
+import { parseHeroesStatistics } from "./parsers/getHeroesStatistics";
 
 const app = express();
 
@@ -16,6 +17,17 @@ app.get("/players/stats", async (req, res) => {
     res.json({
       stats: result,
     });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+app.get('/heroes/stats', async (req, res) => {
+  try {
+    const stats = await parseHeroesStatistics();
+    res.json({
+      stats
+    })
   } catch (err) {
     res.status(500).send(err);
   }
