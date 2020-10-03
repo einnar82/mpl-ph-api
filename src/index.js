@@ -33,6 +33,16 @@ app.get("/allTeams", async (req, res) => {
   }
 });
 
+app.use((error, req, res, next) => {
+  const status = error.statusCode || 500;
+  const message = error.message;
+
+  res.status(status).json({
+      message: message,
+      statusCode: status
+  });
+});
+
 
 app.listen(4000, () => {
   console.log(`app is listening to port 4000`);
